@@ -75,10 +75,9 @@ With tags, the header may look like:
 ```
 polytaxis00u
 author=Rendaw
-date=1988-13-32
-critical
+date=1988-07-04
+backup
 diary
-format=FormA
 <<<<
 This is my diary.
 
@@ -97,19 +96,23 @@ Tags are always in the format `part\n` or `part=part\n`, where a `part` is utf-8
 
   It also contains the utility `ptmod` for modifying the polytaxis header on files.
 
-- [ptunwrap](https://github.com/Rendaw/ptunwrap)
+- [polytaxis-unwrap](https://github.com/Rendaw/polytaxis-unwrap)
 
-  `ptunwrap` provides a compatibility layer for software that doesn't support polytaxis headers. `ptunwrapd` exposes a virtual filesystem that hides the polytaxis header on tagged files. `ptunwrap` translates real filenames into paths in the virtual filesystem.
+  `polytaxis-unwrap` provides a compatibility layer for software that doesn't support polytaxis headers through a fuse filesystem.
 
-- [ptutils](https://github.com/Rendaw/ptutils)
+- [polytaxis-utils](https://github.com/Rendaw/polytaxis-utils)
 
   `ptutils` provides the following utilities: 
 
-  `ptmonitor` - Monitors directories and creates a database of files and metadata.
+  `polytaxis-monitor` - Monitors directories and creates a database of files and metadata.
 
   `ptq` - Queries the `ptmonitor` database.
 
-  `ptimport` - Translates tags from filetype-specific metadata fields to polytaxis headers.
+  `polytaxis-import` - Translates tags from filetype-specific metadata fields to polytaxis headers.
+
+  `polytaxis-cleanup` - Performs common tagged file manipulations.
+
+  `unpt` - Translates paths for use with `polytaxis-unwrap`.
 
 ---
 &copy; Rendaw, Zarbosoft 2015
