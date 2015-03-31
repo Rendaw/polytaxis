@@ -81,7 +81,7 @@ format=FormA
 
 For unsized headers, the magic is suffixed with `u` then followed by `\n`, the encoded tags, and a marker (`<<<<\n`) to indicate the end of the tags.
 
-A verbatim example:
+A complete example:
 
 ```
 polytaxis00u
