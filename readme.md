@@ -40,9 +40,33 @@ polytaxis00
 
 ### Sized header
 
-For sized headers, the magic is suffixed with a space and followed by a 10-digit decimal integer length, `\n`, the encoded tags, and a `\0` if the amount written to this point is less than the indicated length.
+For sized headers, the magic is suffixed with a space and followed by a 10-digit decimal integer length, `\n`, the encoded tags, and a `\0` if the amount written to this point is less than the indicated length.  
 
-As an example:
+The length is the number of bytes in the encoded tags and following padding and does not include the bytes from the start of the header through the new line after the length specifier.  The total size of the header is thus 23 plus the indicated length.  The post-header data starts at an offset equal to that value.
+
+An example with no padding:
+```
+polytaxis00 0000000076
+author=Whole Wheat Pasta
+date=1988-13-32
+critical
+meeting-2014
+format=FormA
+DOCX HEADER
+```
+
+An example with 1 byte of padding:
+```
+polytaxis00 0000000077
+author=Whole Wheat Pasta
+date=1988-13-32
+critical
+meeting-2014
+format=FormA
+\0DOCX HEADER
+```
+
+An example with 436 bytes of padding:
 ```
 polytaxis00 0000000512
 author=Whole Wheat Pasta
@@ -50,27 +74,14 @@ date=1988-13-32
 critical
 meeting-2014
 format=FormA
-\0...
-DOCX HEADER
+\0<any data here, for 512 bytes (skipping a bit)...>DOCX HEADER
 ```
-The `...` after the first `\0` indicate the remaining unused header bytes, and are ignored.
 
 ### Unsized header
 
-For unsized headers, the magic is suffixed with `u` then followed by `\n`, the encoded tags, and a marker to indicate the end of the tags.
+For unsized headers, the magic is suffixed with `u` then followed by `\n`, the encoded tags, and a marker (`<<<<\n`) to indicate the end of the tags.
 
-The marker is always `<<<<\n`.
-
-This looks something like this:
-
-```
-polytaxis00u
-TAGS
-<<<<
-FILE DATA
-```
-
-With tags, the header may look like:
+A verbatim example:
 
 ```
 polytaxis00u
@@ -81,12 +92,12 @@ diary
 <<<<
 This is my diary.
 
-Today I wrote another standard specification. Nobody likes my standards but I don't care. I will show them. I will keep on writing specifications until I die.
+Today I wrote another standard specification. Nobody likes my standards but I don't care. I will show them.
 ```
 
 ### Tag encoding
 
-Tags are always in the format `part\n` or `part=part\n`, where a `part` is utf-8 text with the special sequences `=`, `\n`, and `<<<<\n` escaped by `\`.
+Tags are written as `part\n` or `part=part\n`, where a `part` is utf-8 text with the special sequences `=`, `\n`, and `<<<<\n` escaped by `\`.
 
 ## Libraries and software
 
