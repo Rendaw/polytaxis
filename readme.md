@@ -97,7 +97,7 @@ Today I wrote another standard specification. Nobody likes my standards but I do
 
 ### Tag encoding
 
-Tags are written as `part\n` or `part=part\n`, where a `part` is utf-8 text with the special sequences `=`, `\n`, and `<<<<\n` escaped by `\`.
+Tags are written as `part\n` or `part=part\n`, where a `part` is utf-8 text with the special sequences `\`, `=`, `\n`, and `<<<<\n` escaped by `\`.
 
 ## Libraries and software
 
