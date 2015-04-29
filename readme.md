@@ -1,5 +1,7 @@
 # polytaxis 0.0.0
 
+License: see `cc-noderiv-license.txt`
+
 ## What is polytaxis?
 
 polytaxis is a specification of a universal (non-filetype-specific) tag file header.
@@ -98,6 +100,11 @@ Today I wrote another standard specification. Nobody likes my standards but I do
 ### Tag encoding
 
 Tags are written as `part\n` or `part=part\n`, where a `part` is utf-8 text with the special sequences `\`, `=`, `\n`, and `<<<<\n` escaped by `\`.
+
+## Recommendations
+
+- Don't use `>`, `<`, or `!=` in tag keys.
+- When tagging a filetype that does not natively support polytaxis, suffix the filename with `.p` (ex: `my_house.jpg.p`).
 
 ## Libraries and software
 
