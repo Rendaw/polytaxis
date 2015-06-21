@@ -118,13 +118,17 @@ Tags are written as `part\n` or `part=part\n`, where a `part` is utf-8 text with
 
   `polytaxis-unwrap` provides a compatibility layer for software that doesn't support polytaxis headers through a fuse filesystem.
 
+- [polytaxis-monitor](https://github.com/Rendaw/polytaxis-monitor)
+
+  `polytaxis-monitor` provides a service to monitor directories for changes and index any tags found within.  It also provies `ptq` to query the index from the command line.
+
+- [polytaxis-adventure](https://github.com/Rendaw/polytaxis-adventure)
+
+  `polytaxis-adventure` is a browser for the `polytaxis-monitor` index, built with Qt.
+
 - [polytaxis-utils](https://github.com/Rendaw/polytaxis-utils)
 
-  `ptutils` provides the following utilities: 
-
-  `polytaxis-monitor` - Monitors directories and creates a database of files and metadata.
-
-  `ptq` - Queries the `ptmonitor` database.
+  `polytaxis-utils` provides the following utilities: 
 
   `polytaxis-import` - Translates tags from filetype-specific metadata fields to polytaxis headers.
 
