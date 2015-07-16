@@ -126,6 +126,10 @@ Tags are written as `part\n` or `part=part\n`, where a `part` is utf-8 text with
 
   `polytaxis-adventure` is a browser for the `polytaxis-monitor` index, built with Qt.
 
+- [ptmod-gui](https://github.com/Rendaw/ptmod-gui)
+
+  `ptmod-gui` is a graphical editor for polytaxis tags.
+
 - [polytaxis-utils](https://github.com/Rendaw/polytaxis-utils)
 
   `polytaxis-utils` provides the following utilities: 
